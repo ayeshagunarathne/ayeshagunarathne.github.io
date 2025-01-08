@@ -8,12 +8,12 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Ayesha Gunarathna"
+title                    : "Ayesha Madushika Gunarathna Karunaratna Mudiyanselage"
 title_separator          : "-"
 name                     : &name "Your Name"
 description              : &description "Master's Student in Biomedical Engineering"
 url                      : https://ayeshagunarathne.github.io/ # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
-baseurl                  : "" # the subpath of your site, e.g. "/blog"
+baseurl                  :  "/Ayesha Gunarathne's blog"
 repository               : "ayeshagunarathne/ayeshagunarathne.github.io"  #academicpages/academicpages.github.io"
  
 # Site Author - The following control what appear as part of the author content on the side bar.
@@ -21,9 +21,9 @@ repository               : "ayeshagunarathne/ayeshagunarathne.github.io"  #acade
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.jpg"
+  avatar           : "file.jpg"
   name             : "Ayesha MGKM"
-  pronouns         : # example: "she/her"  
+  pronouns         : "she/her"  
   bio              : "Medical Image Analysis/Deep Learning"
   location         : "Oulu/Finland"
   employer         : "Master's Student at University of Oulu"
