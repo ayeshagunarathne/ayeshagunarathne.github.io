@@ -10,7 +10,7 @@
 locale                   : "en-US"
 title                    : "Home"
 title_separator          : "-"
-name                     : &name "Your Name"
+name                     : #&name "Your Name"
 description              : &description "Master's Student in Biomedical Engineering"
 url                      : https://ayeshagunarathne.github.io/ # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  :  # "/Ayesha Gunarathne's blog"
@@ -22,7 +22,7 @@ repository               : "ayeshagunarathne/ayeshagunarathne.github.io"  #acade
 author:
   # Biographic information
   avatar           : "file.jpg"
-  name             : #"Ayesha MGKM"
+  name             : "AYESHA MADUSHIKA GUNARATHNA KARUNARATNA MUDIYANSELAGE"
   pronouns         : "she/her"  
   bio              : "Medical Image Analysis/Deep Learning"
   location         : "Oulu/Finland"
