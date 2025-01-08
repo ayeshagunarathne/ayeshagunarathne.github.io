@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Ayesha Madushika Gunarathna Karunaratna Mudiyanselage"
+title                    : "Home"
 title_separator          : "-"
 name                     : &name "Your Name"
 description              : &description "Master's Student in Biomedical Engineering"
@@ -22,11 +22,11 @@ repository               : "ayeshagunarathne/ayeshagunarathne.github.io"  #acade
 author:
   # Biographic information
   avatar           : "file.jpg"
-  name             : "Ayesha MGKM"
+  name             : #"Ayesha MGKM"
   pronouns         : "she/her"  
   bio              : "Medical Image Analysis/Deep Learning"
   location         : "Oulu/Finland"
-  employer         : "Master's Student at University of Oulu"
+  employer         : "Master's Student"
   uri              : # URL
   email            : "guneratne_ayesha@yahoo.com" 
 
