@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TranStain — Ayesha Gunarathne</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1E1A;
+    --paper:#DCEEFB;
+    --panel:#F7FAF8;
+    --line:#C7D6E0;
+    --accent:#1F7A6C;
+    --accent-2:#C99A3E;
+    --muted:#5A6B63;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+  }
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  .back{
+    display:inline-block;
+    margin-top:48px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--muted);
+  }
+  .back:hover{color:var(--accent);}
+
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:clamp(28px, 4.5vw, 42px);
+    margin-top:20px;
+    line-height:1.15;
+  }
+
+  .meta{
+    margin-top:14px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--muted);
+  }
+
+  .content{
+    margin-top:36px;
+    padding-bottom:80px;
+  }
+  .content h2{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:19px;
+    font-weight:600;
+    margin-top:34px;
+    margin-bottom:12px;
+  }
+  .content p{
+    font-size:15.5px;
+    color:var(--muted);
+    margin-bottom:14px;
+    max-width:66ch;
+  }
+
+  .case-meta{
+    display:flex; flex-wrap:wrap; gap:8px 10px;
+    margin-top:22px;
+  }
+  .chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    padding:4px 9px;
+    border:1px solid var(--line);
+    color:var(--muted);
+    background:var(--panel);
+  }
+
+  .links{
+    margin-top:30px;
+    display:flex; gap:22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="../index.html">← Back to projects</a>
+
+  <h1>TranStain: Vision Transformer based histopathology image normalization (Center for Machine Vision and Signal Processing (CMVS) - ITEE, Oulu University)</h1>
+  <div class="meta">CASE / 03</div>
+
+  <div class="case-meta">
+    <span class="chip">Research</span>
+    <span class="chip">Digital Twins</span>
+  </div>
+
+  <div class="content">
+    <h2>Problem</h2>
+    <p>
+      Histopathology images vary widely in stain appearance across labs and
+      scanners, which can hurt the performance of downstream deep learning
+      models. TranStain addresses this with a stain normalization method for
+      stain-style transfer.
+    </p>
+
+    <h2>Approach</h2>
+    <p>
+      The method uses a Residual Swin Transformer generator within a
+      CycleGAN framework — one of the earliest applications of a Swin
+      Transformer-based generator in CycleGAN, adapted specifically for
+      histopathology images. It requires no paired images and no
+      expert-selected reference or template image, instead learning the
+      dataset's stain distribution in an unsupervised manner.
+    </p>
+
+    <h2>Result</h2>
+    <p>
+      Evaluated across four different datasets, the method generalizes well
+      to staining conditions it wasn't trained on.
+    </p>
+  </div>
+
+  <div class="links">
+    <a href="https://github.com/ayeshagunarathne/TranStain">Code →</a>
+  </div>
+
+</div>
+</body>
+</html>

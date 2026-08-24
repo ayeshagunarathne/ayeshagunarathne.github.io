@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name — Portfolio</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1E1A;
+    --paper:#DCEEFB;
+    --panel:#F7FAF8;
+    --line:#C7D6E0;
+    --accent:#1F7A6C;
+    --accent-2:#C99A3E;
+    --muted:#5A6B63;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+  }
+
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .wrap{max-width:880px; margin:0 auto; padding:0 24px;}
+
+  header{
+    padding:96px 0 72px;
+    position:relative;
+  }
+
+  .profile-pic{
+    width:160px;
+    height:160px;
+    border-radius:12px;
+    object-fit:cover;
+    border:2px solid var(--line);
+    position:absolute;
+    top:48px;
+    right:24px;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:7px; height:7px;
+    background:var(--accent);
+    display:inline-block;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce){ .eyebrow::before{animation:none;} }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.25;} }
+
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:clamp(38px, 6vw, 62px);
+    line-height:1.04;
+    letter-spacing:-0.01em;
+    max-width:17ch;
+  }
+
+  .tagline{
+    margin-top:22px;
+    max-width:52ch;
+    font-size:18px;
+    color:var(--muted);
+  }
+
+  .hero-links{
+    margin-top:34px;
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+  }
+  .hero-links a{color:var(--ink); border-bottom:1px solid var(--line); padding-bottom:2px;}
+  .hero-links a:hover{color:var(--accent); border-color:var(--accent); text-decoration:none;}
+
+  .section{padding:56px 0;}
+  .section-head{
+    display:flex; align-items:baseline; gap:14px;
+    margin-bottom:36px;
+  }
+  .section-head .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--accent-2);
+    letter-spacing:0.08em;
+  }
+  .section-head h2{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:24px;
+  }
+  .section-head::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  .case{
+    position:relative;
+    background:var(--panel);
+    border:1px solid var(--line);
+    padding:28px 28px 26px;
+    margin-bottom:22px;
+    opacity:0;
+    transform:translateY(10px);
+    animation: reveal 0.6s ease forwards;
+  }
+  @media (prefers-reduced-motion: reduce){ .case{opacity:1; transform:none; animation:none;} }
+  @keyframes reveal{ to{opacity:1; transform:none;} }
+
+  .case::before, .case::after,
+  .corner-br::before, .corner-br::after{
+    content:"";
+    position:absolute;
+    width:14px; height:14px;
+    border:2px solid var(--accent);
+  }
+  .case::before{ top:-1px; left:-1px; border-right:none; border-bottom:none; }
+  .case::after{ top:-1px; right:-1px; border-left:none; border-bottom:none; }
+  .corner-br{ position:relative; }
+  .corner-br::before{ bottom:-1px; left:-1px; border-right:none; border-top:none; }
+  .corner-br::after{ bottom:-1px; right:-1px; border-left:none; border-top:none; }
+
+  .case-id{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--muted);
+    letter-spacing:0.06em;
+    margin-bottom:10px;
+  }
+
+  .case-status{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--accent-2);
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:3px 8px;
+    margin-left:10px;
+    letter-spacing:0.02em;
+  }
+
+  .case h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:21px;
+    font-weight:600;
+    margin-bottom:8px;
+  }
+
+  .case p{
+    color:var(--muted);
+    font-size:15px;
+    max-width:62ch;
+    margin-bottom:16px;
+  }
+
+  .case-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 10px;
+    margin-bottom:16px;
+  }
+  .chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    padding:4px 9px;
+    border:1px solid var(--line);
+    color:var(--muted);
+    background:var(--paper);
+  }
+
+  .case-links{
+    display:flex; gap:18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+  }
+
+  .about p{
+    max-width:64ch;
+    color:var(--muted);
+    font-size:15.5px;
+    margin-bottom:14px;
+  }
+  .about strong{color:var(--ink); font-weight:600;}
+
+  .stack-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
+    gap:10px;
+    margin-top:22px;
+  }
+  .stack-item{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    padding:10px 12px;
+    border:1px solid var(--line);
+    background:var(--panel);
+    color:var(--ink);
+  }
+
+  /* ---- blogs ---- */
+  .blog-list{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  .blog-item{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:16px;
+    padding:16px 4px;
+    border-bottom:1px solid var(--line);
+  }
+  .blog-item:first-child{
+    border-top:1px solid var(--line);
+  }
+  .blog-item .blog-title{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:16.5px;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .blog-item:hover .blog-title{color:var(--accent);}
+  .blog-item .blog-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+  .blog-item a.blog-link{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:16px;
+    width:100%;
+    text-decoration:none;
+  }
+  .blog-item a.blog-link:hover{text-decoration:none;}
+
+  footer{
+    padding:64px 0 80px;
+    border-top:1px solid var(--line);
+    margin-top:20px;
+  }
+  footer .row{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap:wrap; gap:20px;
+  }
+  footer .contact a{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:15px;
+    font-weight:600;
+    color:var(--ink);
+  }
+  footer .contact a:hover{color:var(--accent);}
+  footer .links{
+    display:flex; gap:18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+  }
+  footer .fine{
+    margin-top:36px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--muted);
+  }
+
+  @media (max-width:600px){
+    header{padding:64px 0 48px;}
+    .section{padding:40px 0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <!--div class="eyebrow">Available — open to opportunities</div -->
+    <img src="images/photo.jpg" alt="Ayesha Gunarathne" class="profile-pic">
+    <h1>Ayesha Gunarathne</h1>
+  </header>
+
+  <section class="section" id="work">
+    <div class="section-head">
+      <span class="tag">01</span>
+      <h2>Projects</h2>
+    </div>
+
+    <article class="case corner-br">
+      <div class="case-id">01</div>
+      <h3>Master's thesis (Knee Osteoarthritis & Deep Learning)</h3>
+      <p>
+        Segmented the patellar bone (kneecap) from the OAI dataset (DESS sequence)
+        using the MONAI framework — addressing a gap where very few automated
+        segmentation methods existed for this bone, and releasing an annotated
+        dataset alongside the work.
+      </p>
+     <div class="case-links">
+        <a href="projects/project1.html">Details →</a>
+        <a href="https://github.com/ayeshagunarathne/Patellar_Bone_Segmentation">Code →</a>
+        <a href="https://drive.google.com/file/d/1Tp8bAoDWeviELRDZux39rBzazrYlk9r6/view?usp=drive_link">Thesis →</a>
+      </div>
+    </article>
+
+    <article class="case corner-br">
+      <div class="case-id">02 <span class="case-status">Manuscript under review — Osteoarthritis Imaging (OSTIMA-D-26-00023)</span></div>
+      <h3>Knee bone segmentation in MRIs and Automatic Osteophyte Severity classification (HST unit, Faculty of Medicine, Oulu University)</h3>
+      <p>
+        First research work to automatically classify osteophyte severity in the
+        patellar bone — testing local binary patterns, spherical harmonics, and
+        machine learning-based methods on shape and texture variations in MRIs.
+      </p>
+      <div class="case-links">
+        <a href="projects/project2.html">Details →</a>
+        <a href="https://github.com/ayeshagunarathne/Patellar_osteophyte_grading">Code →</a>
+      </div>
+    </article>
+
+    <article class="case corner-br">
+      <div class="case-id">03 <span class="case-status">Manuscript under review — Transactions in Medical Imaging</span></div>
+      <h3>TranStain: Vision Transformer based histopathology image normalization (Center for Machine Vision and Signal Processing (CMVS) - ITEE, Oulu University)</h3>
+      <p>
+        A stain normalization method using a Residual Swin Transformer generator
+        within a CycleGAN framework — one of the earliest Swin Transformer-based
+        CycleGAN generators applied to histopathology. Requires no paired images
+        or expert-selected reference, and generalizes well across four datasets
+        with unseen staining conditions.
+      </p>
+      <div class="case-links">
+        <a href="projects/project3.html">Details →</a>
+        <a href="https://github.com/ayeshagunarathne/TranStain">Code →</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="section" id="blogs">
+    <div class="section-head">
+      <span class="tag">02</span>
+      <h2>Blogs</h2>
+    </div>
+
+    <div class="blog-list">
+      <div class="blog-item">
+        <a class="blog-link" href="https://medium.com/@ayeshagunarathne/local-binary-patterns-lbp-explained-4eb5364492f3" target="_blank" rel="noopener">
+          <span class="blog-title">Local Binary Patterns (LBP) — Explained</span>
+          <span class="blog-date">Nov 2025</span>
+        </a>
+      </div>
+      <div class="blog-item">
+        <a class="blog-link" href="https://medium.com/@ayeshagunarathne/how-to-view-dicom-images-using-itk-snap-a-beginners-guide-204dc11f8d20" target="_blank" rel="noopener">
+          <span class="blog-title">How to View DICOM Images using ITK-SNAP: A Beginner's Guide</span>
+          <span class="blog-date">Mar 2025</span>
+        </a>
+      </div>
+      <div class="blog-item">
+        <a class="blog-link" href="https://medium.com/@ayeshagunarathne/balanced-accuracy-for-imbalanced-binary-multi-class-medical-image-classification-80d490161d5c" target="_blank" rel="noopener">
+          <span class="blog-title">Balanced Accuracy for Imbalanced Binary & Multi-class Medical Image Classification</span>
+          <span class="blog-date">Jan 2026</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section about" id="about">
+    <div class="section-head">
+      <span class="tag">03</span>
+      <h2>About</h2>
+    </div>
+    <p>
+      Medical imaging researcher, with a Master's in Biomedical Imaging
+      (specialization: Signal and Image Processing) from the University of
+      Oulu (2023–2025). Worked as a project researcher at the HST unit,
+      Faculty of Medicine, from September 2025 to December 2025.
+    </p>
+    <p>
+      Outside research, I volunteer as a Red Cross (Punainen Risti) member
+      and an Oulu2026 volunteer, and I'm active in Toastmasters — currently
+      Vice President of Public Relations at Oulu Toastmasters Club (Oulu
+      Speakers Hub).
+    </p>
+    <p>
+      I'm currently looking for my next role, while also learning Finnish
+      full-time through an integration course at Arffman, Oulu.
+    </p>
+    <div class="stack-grid">
+      <div class="stack-item">Python</div>
+      <div class="stack-item">PyTorch</div>
+      <div class="stack-item">Medical Imaging</div>
+      <div class="stack-item">Signal Processing</div>
+      <div class="stack-item">Computer Aided Designing (CAD)</div>
+      <div class="stack-item">Automation</div>
+      <div class="stack-item">Deep Learning</div>
+      <div class="stack-item">Magnetic Resonance Imaging</div>
+      <div class="stack-item">Control Systems</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="row">
+      <div class="contact">
+        <a href="mailto:guneratne_ayesha@yahoo.com">guneratne_ayesha@yahoo.com →</a>
+      </div>
+      <div class="links">
+        <a href="https://github.com/ayeshagunarathne">GitHub</a>
+        <a href="https://www.linkedin.com/in/ayesha-gunarathne/">LinkedIn</a>
+      </div>
+    </div>
+    <div class="fine">Not indexed — shared by direct link only.</div>
+  </footer>
+
+</div>
+
+</body>
+</html>

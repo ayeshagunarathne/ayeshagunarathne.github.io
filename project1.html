@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master's thesis (Knee Osteoarthritis & Deep Learning) — Ayesha Gunarathne</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1E1A;
+    --paper:#DCEEFB;
+    --panel:#F7FAF8;
+    --line:#C7D6E0;
+    --accent:#1F7A6C;
+    --accent-2:#C99A3E;
+    --muted:#5A6B63;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+  }
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  .back{
+    display:inline-block;
+    margin-top:48px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--muted);
+  }
+  .back:hover{color:var(--accent);}
+
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:clamp(28px, 4.5vw, 42px);
+    margin-top:20px;
+    line-height:1.15;
+  }
+
+  .meta{
+    margin-top:14px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--muted);
+  }
+
+  .content{
+    margin-top:36px;
+    padding-bottom:80px;
+  }
+  .content h2{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:19px;
+    font-weight:600;
+    margin-top:34px;
+    margin-bottom:12px;
+  }
+  .content p{
+    font-size:15.5px;
+    color:var(--muted);
+    margin-bottom:14px;
+    max-width:66ch;
+  }
+
+  .case-meta{
+    display:flex; flex-wrap:wrap; gap:8px 10px;
+    margin-top:22px;
+  }
+  .chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    padding:4px 9px;
+    border:1px solid var(--line);
+    color:var(--muted);
+    background:var(--panel);
+  }
+
+  .links{
+    margin-top:30px;
+    display:flex; gap:22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="../index.html">← Back to projects</a>
+
+  <h1>Master's thesis (Knee Osteoarthritis & Deep Learning)</h1>
+  <div class="meta">CASE / 01</div>
+
+  <div class="case-meta">
+    <span class="chip">PyTorch</span>
+    <span class="chip">Medical Imaging</span>
+    <span class="chip">Segmentation</span>
+  </div>
+
+  <div class="content">
+    <h2>Problem</h2>
+    <p>
+      This work was completed at the Health Science and Technology Unit,
+      Faculty of Medicine, University of Oulu, Finland. The main goal was to
+      segment the patellar bone (kneecap) from a well-established public
+      dataset, the Osteoarthritis Initiative (OAI). Very few prior attempts
+      had been made to automatically segment the patellar bone from the OAI
+      dataset (DESS sequence), which was identified as the research gap
+      addressed by this work. The project used the MONAI framework for
+      segmentation and also released an annotated dataset of the patellar
+      bone in the OAI dataset (DESS sequence).
+    </p>
+
+    <h2>Approach</h2>
+    <p>
+      Describe your method: model architecture, dataset, preprocessing,
+      training setup, anything a technical reader would want to know.
+    </p>
+
+    <h2>Result</h2>
+    <p>
+      Lead with the number or outcome that matters — accuracy, Dice score,
+      what it enabled, how it compared to prior approaches.
+    </p>
+  </div>
+
+  <div class="links">
+    <a href="https://github.com/ayeshagunarathne/Patellar_Bone_Segmentation">Code →</a>
+    <a href="https://drive.google.com/file/d/1Tp8bAoDWeviELRDZux39rBzazrYlk9r6/view?usp=drive_link">Full thesis →</a>
+  </div>
+
+</div>
+</body>
+</html>
