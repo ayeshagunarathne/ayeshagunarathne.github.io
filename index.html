@@ -46,19 +46,21 @@
   .wrap{max-width:880px; margin:0 auto; padding:0 24px;}
 
   header{
-    padding:96px 0 72px;
+    padding:96px 0 32px;
     position:relative;
+    display:flex;
+    align-items:center;
+    gap:40px;
   }
+  .header-text{ flex:1; min-width:0; }
 
   .profile-pic{
-    width:160px;
-    height:160px;
+    width:140px;
+    height:140px;
     border-radius:12px;
     object-fit:cover;
     border:2px solid var(--line);
-    position:absolute;
-    top:48px;
-    right:24px;
+    flex-shrink:0;
   }
 
   .eyebrow{
@@ -85,10 +87,17 @@
   h1{
     font-family:'Space Grotesk', sans-serif;
     font-weight:700;
-    font-size:clamp(38px, 6vw, 62px);
-    line-height:1.04;
+    font-size:clamp(26px, 3.4vw, 36px);
+    line-height:1.1;
     letter-spacing:-0.01em;
-    max-width:17ch;
+  }
+
+  .location{
+    margin-top:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--muted);
+    letter-spacing:0.02em;
   }
 
   .tagline{
@@ -333,18 +342,21 @@
   }
 
   @media (max-width:600px){
-    header{padding:64px 0 48px;}
+    header{
+      padding:64px 0 48px;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:20px;
+    }
     .section{padding:40px 0;}
     .profile-pic{
-      position:static;
       width:88px;
       height:88px;
-      margin-bottom:20px;
     }
     .theme-toggle{
       position:static;
       display:inline-block;
-      margin-bottom:20px;
+      margin-bottom:4px;
     }
   }
 </style>
@@ -357,7 +369,10 @@
     <button class="theme-toggle" id="themeToggle" type="button">Dark mode</button>
     <!--div class="eyebrow">Available — open to opportunities</div -->
     <img src="photo.png" alt="Ayesha Gunarathne" class="profile-pic">
-    <h1>Ayesha Gunarathne</h1>
+    <div class="header-text">
+      <h1>Ayesha Gunarathne</h1>
+      <div class="location">Oulu, Finland</div>
+    </div>
   </header>
 
   <section class="section" id="work">
