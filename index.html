@@ -10,13 +10,25 @@
 <style>
   :root{
     --ink:#0F1E1A;
-    --paper:#DCEEFB;
-    --panel:#F7FAF8;
+    --paper:#FFFFFF;
+    --panel:#E7F1FB;
     --line:#C7D6E0;
     --accent:#1F7A6C;
     --accent-2:#C99A3E;
     --muted:#5A6B63;
   }
+
+  [data-theme="dark"]{
+    --ink:#EBEFEC;
+    --paper:#0B0F0E;
+    --panel:#12242F;
+    --line:#28383F;
+    --accent:#3FB39E;
+    --accent-2:#D9AE5C;
+    --muted:#93A19B;
+  }
+
+  body{ transition: background 0.2s ease, color 0.2s ease; }
 
   *{box-sizing:border-box; margin:0; padding:0;}
 
@@ -97,6 +109,20 @@
   .hero-links a{color:var(--ink); border-bottom:1px solid var(--line); padding-bottom:2px;}
   .hero-links a:hover{color:var(--accent); border-color:var(--accent); text-decoration:none;}
 
+  .theme-toggle{
+    position:absolute;
+    top:32px;
+    left:24px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--muted);
+    background:none;
+    border:1px solid var(--line);
+    padding:6px 12px;
+    cursor:pointer;
+  }
+  .theme-toggle:hover{ color:var(--accent); border-color:var(--accent); }
+
   .section{padding:56px 0;}
   .section-head{
     display:flex; align-items:baseline; gap:14px;
@@ -120,15 +146,29 @@
     background:var(--line);
   }
 
+  .work-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+  }
+  .work-grid .featured{
+    grid-column:1 / -1;
+  }
   .case{
     position:relative;
     background:var(--panel);
     border:1px solid var(--line);
     padding:28px 28px 26px;
-    margin-bottom:22px;
+    margin-bottom:0;
     opacity:0;
     transform:translateY(10px);
     animation: reveal 0.6s ease forwards;
+    display:flex;
+    flex-direction:column;
+  }
+  .case p{ flex:1; }
+  @media (max-width:720px){
+    .work-grid{ grid-template-columns:1fr; }
   }
   @media (prefers-reduced-motion: reduce){ .case{opacity:1; transform:none; animation:none;} }
   @keyframes reveal{ to{opacity:1; transform:none;} }
@@ -295,6 +335,17 @@
   @media (max-width:600px){
     header{padding:64px 0 48px;}
     .section{padding:40px 0;}
+    .profile-pic{
+      position:static;
+      width:88px;
+      height:88px;
+      margin-bottom:20px;
+    }
+    .theme-toggle{
+      position:static;
+      display:inline-block;
+      margin-bottom:20px;
+    }
   }
 </style>
 </head>
@@ -303,6 +354,7 @@
 <div class="wrap">
 
   <header>
+    <button class="theme-toggle" id="themeToggle" type="button">Dark mode</button>
     <!--div class="eyebrow">Available — open to opportunities</div -->
     <img src="photo.png" alt="Ayesha Gunarathne" class="profile-pic">
     <h1>Ayesha Gunarathne</h1>
@@ -314,7 +366,8 @@
       <h2>Projects</h2>
     </div>
 
-    <article class="case corner-br">
+    <div class="work-grid">
+    <article class="case corner-br featured">
       <div class="case-id">01</div>
       <h3>Master's thesis (Knee Osteoarthritis & Deep Learning)</h3>
       <p>
@@ -359,6 +412,7 @@
         <a href="https://github.com/ayeshagunarathne/TranStain">Code →</a>
       </div>
     </article>
+    </div>
   </section>
 
   <section class="section" id="blogs">
@@ -439,4 +493,26 @@
 </div>
 
 </body>
+<script>
+  (function(){
+    var toggle = document.getElementById('themeToggle');
+    var saved = localStorage.getItem('theme');
+    if(saved === 'dark'){
+      document.documentElement.setAttribute('data-theme', 'dark');
+      toggle.textContent = 'Light mode';
+    }
+    toggle.addEventListener('click', function(){
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if(isDark){
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        toggle.textContent = 'Dark mode';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        toggle.textContent = 'Light mode';
+      }
+    });
+  })();
+</script>
 </html>
