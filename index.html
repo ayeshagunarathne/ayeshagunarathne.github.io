@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,7 +43,7 @@
   a:hover{text-decoration:underline;}
   a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
 
-  .wrap{max-width:880px; margin:0 auto; padding:0 24px;}
+  .wrap{max-width:880px; margin:0 auto; padding:0 48px;}
 
   header{
     padding:96px 0 32px;
@@ -342,6 +342,7 @@
   }
 
   @media (max-width:600px){
+    .wrap{ padding:0 24px; }
     header{
       padding:64px 0 48px;
       flex-direction:column;
@@ -366,12 +367,17 @@
 <div class="wrap">
 
   <header>
-    <button class="theme-toggle" id="themeToggle" type="button">Dark mode</button>
+    <button class="theme-toggle" id="themeToggle" type="button">Light mode</button>
     <!--div class="eyebrow">Available — open to opportunities</div -->
     <img src="photo.png" alt="Ayesha Gunarathne" class="profile-pic">
     <div class="header-text">
       <h1>Ayesha Gunarathne</h1>
       <div class="location">Oulu, Finland</div>
+      <div class="hero-links">
+        <a href="mailto:guneratne_ayesha@yahoo.com">guneratne_ayesha@yahoo.com</a>
+        <a href="https://github.com/ayeshagunarathne">GitHub</a>
+        <a href="https://www.linkedin.com/in/ayesha-gunarathne/">LinkedIn</a>
+      </div>
     </div>
   </header>
 
@@ -455,6 +461,12 @@
           <span class="blog-date">Jan 2026</span>
         </a>
       </div>
+      <div class="blog-item">
+        <a class="blog-link" href="https://medium.com/@ayeshagunarathne/givers-receivers-a-different-perspective-a0ee1b386813" target="_blank" rel="noopener">
+          <span class="blog-title">Givers & Receivers: A Different Perspective</span>
+          <span class="blog-date">Jan 2026</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -464,16 +476,10 @@
       <h2>About</h2>
     </div>
     <p>
-      Medical imaging researcher, with a Master's in Biomedical Imaging
-      (specialization: Signal and Image Processing) from the University of
-      Oulu (2023–2025). Worked as a project researcher at the HST unit,
-      Faculty of Medicine, from September 2025 to December 2025.
-    </p>
-    <p>
-      Outside research, I volunteer as a Red Cross (Punainen Risti) member
-      and an Oulu2026 volunteer, and I'm active in Toastmasters — currently
-      Vice President of Public Relations at Oulu Toastmasters Club (Oulu
-      Speakers Hub).
+      With a Master's in Biomedical Imaging (specialization: Signal and
+      Image Processing) from the University of Oulu (2023–2025), I worked
+      as a project researcher at the HST unit, Faculty of Medicine, from
+      September 2025 to December 2025.
     </p>
     <p>
       I'm currently looking for my next role, while also learning Finnish
@@ -492,6 +498,24 @@
     </div>
   </section>
 
+  <section class="section" id="interests">
+    <div class="section-head">
+      <span class="tag">04</span>
+      <h2>Other Interests</h2>
+    </div>
+    <p>
+      Outside research, I volunteer as a Red Cross (Punainen Risti) member
+      and an Oulu2026 volunteer, and I'm active in Toastmasters — currently
+      Vice President of Public Relations at Oulu Toastmasters Club (Oulu
+      Speakers Hub).
+    </p>
+    <p>
+      I also love swimming, running, working out at the gym, abstract
+      painting, playing chess, and traveling. One thing I'm really looking
+      forward to learning in the future is kickboxing.
+    </p>
+  </section>
+
   <footer>
     <div class="row">
       <div class="contact">
@@ -502,7 +526,6 @@
         <a href="https://www.linkedin.com/in/ayesha-gunarathne/">LinkedIn</a>
       </div>
     </div>
-    <div class="fine">Not indexed — shared by direct link only.</div>
   </footer>
 
 </div>
@@ -512,9 +535,9 @@
   (function(){
     var toggle = document.getElementById('themeToggle');
     var saved = localStorage.getItem('theme');
-    if(saved === 'dark'){
-      document.documentElement.setAttribute('data-theme', 'dark');
-      toggle.textContent = 'Light mode';
+    if(saved === 'light'){
+      document.documentElement.removeAttribute('data-theme');
+      toggle.textContent = 'Dark mode';
     }
     toggle.addEventListener('click', function(){
       var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
