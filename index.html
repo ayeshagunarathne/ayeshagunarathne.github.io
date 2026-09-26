@@ -289,13 +289,18 @@
 
   /* ---- gallery ---- */
   .gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:20px;
+    display:flex;
+    gap:16px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding-bottom:12px;
+    -webkit-overflow-scrolling:touch;
   }
   .gallery-item{
     display:flex;
     flex-direction:column;
+    flex:0 0 260px;
+    scroll-snap-align:start;
   }
   .gallery-item img{
     width:100%;
@@ -311,7 +316,7 @@
     line-height:1.5;
   }
   @media (max-width:600px){
-    .gallery-grid{ grid-template-columns:1fr; }
+    .gallery-item{ flex-basis:200px; }
   }
 
   /* ---- blogs ---- */
